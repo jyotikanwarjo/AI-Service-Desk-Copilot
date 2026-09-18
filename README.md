@@ -2,7 +2,7 @@
 
 
 
-A knowledge-grounded AI assistant for IT Service Desk incident analysis and troubleshooting.
+A knowledge-grounded Generative AI assistant for IT Service Desk incident analysis and approved troubleshooting guidance.
 
 
 
@@ -10,25 +10,23 @@ A knowledge-grounded AI assistant for IT Service Desk incident analysis and trou
 
 
 
-AI Service Desk Copilot is a knowledge-grounded Generative AI application
-
-designed to assist IT Service Desk analysts with incident analysis and
-
-approved troubleshooting guidance.
+\*\*AI Service Desk Copilot\*\* is a knowledge-grounded Generative AI application designed to assist IT Service Desk analysts with incident analysis, knowledge retrieval, and approved troubleshooting guidance.
 
 
 
-The application uses Retrieval-Augmented Generation (RAG) to retrieve
-
-relevant knowledge-base content before generating an AI response.
+The application uses \*\*Retrieval-Augmented Generation (RAG)\*\* to retrieve relevant Knowledge Base (KB) content before generating a response.
 
 
 
-A retrieval threshold and deterministic decision engine help prevent the
+A retrieval threshold and deterministic decision logic help prevent the system from generating troubleshooting guidance when sufficient approved knowledge is not available.
 
-system from generating troubleshooting guidance when sufficient approved
 
-knowledge is not available.
+
+The project demonstrates how Generative AI can support Service Desk operations while maintaining \*\*knowledge grounding, AI guardrails, controlled responses, and human oversight\*\*.
+
+
+
+\---
 
 
 
@@ -36,27 +34,31 @@ knowledge is not available.
 
 
 
-IT Service Desk analysts often spend significant time identifying incidents,
-
-searching knowledge-base articles, validating troubleshooting procedures,
-
-and deciding whether an issue can be resolved or should be escalated.
+IT Service Desk analysts often spend significant time:
 
 
 
-A major challenge is ensuring that AI-generated troubleshooting remains
+\* Understanding incident descriptions
 
-grounded in approved enterprise knowledge and does not invent unsupported
+\* Identifying the user's intent
 
-solutions.
+\* Searching Knowledge Base articles
+
+\* Validating approved troubleshooting procedures
+
+\* Determining whether an incident can be resolved or should be escalated
 
 
 
-This project explores how Generative AI and Retrieval-Augmented Generation
+A key challenge with Generative AI is preventing unsupported or invented troubleshooting guidance.
 
-(RAG) can assist Service Desk analysts while maintaining knowledge grounding,
 
-decision controls, and human oversight.
+
+This project explores how \*\*RAG, semantic retrieval, similarity scoring, and deterministic decision controls\*\* can be combined to create a more controlled AI-assisted Service Desk workflow.
+
+
+
+\---
 
 
 
@@ -64,31 +66,33 @@ decision controls, and human oversight.
 
 
 
-AI Service Desk Copilot is a knowledge-grounded Generative AI application
-
-designed to assist IT Service Desk analysts with incident analysis and
-
-approved troubleshooting guidance.
+The AI Service Desk Copilot follows a knowledge-first approach:
 
 
 
-The application uses Retrieval-Augmented Generation (RAG) to retrieve
+1\. The analyst enters an IT incident.
 
-relevant knowledge-base content before generating an AI response.
+2\. The system analyzes the incident and identifies the relevant intent.
+
+3\. The RAG component searches the approved Knowledge Base.
+
+4\. Retrieved KB content receives a similarity score.
+
+5\. The score is evaluated against a configured retrieval threshold.
+
+6\. If the KB match is sufficient, the relevant approved content is provided to Gemini.
+
+7\. Gemini generates a response grounded in the retrieved KB.
+
+8\. If sufficient knowledge is unavailable, the system abstains from generating unsupported troubleshooting guidance.
 
 
 
-A retrieval threshold and deterministic decision engine help prevent the
-
-system from generating troubleshooting guidance when sufficient approved
-
-knowledge is not available.
+This approach helps keep AI responses aligned with the available approved knowledge.
 
 
 
-The system can also abstain from generating an AI response when the
-
-retrieved knowledge does not meet the approved similarity threshold.
+\---
 
 
 
@@ -96,47 +100,47 @@ retrieved knowledge does not meet the approved similarity threshold.
 
 
 
-The AI Service Desk Copilot follows a RAG-based architecture:
-
-
+```text
 
 User Ticket
 
-&#x20;   ↓
+&#x20;    ↓
 
 Streamlit Interface
 
-&#x20;   ↓
+&#x20;    ↓
 
 Ticket Analysis
 
-&#x20;   ↓
+&#x20;    ↓
 
 Knowledge Base Retrieval
 
-&#x20;   ↓
+&#x20;    ↓
 
 Similarity Score
 
-&#x20;   ↓
+&#x20;    ↓
 
 Threshold Check (0.74)
 
-&#x20;   ↓
+&#x20;    ↓
 
 Relevant Approved KB
 
-&#x20;   ↓
+&#x20;    ↓
 
 Gemini LLM
 
-&#x20;   ↓
+&#x20;    ↓
 
 Grounded Response
 
-&#x20;   ↓
+&#x20;    ↓
 
 Service Desk Analyst
+
+```
 
 
 
@@ -144,43 +148,147 @@ Service Desk Analyst
 
 
 
-1\. The Service Desk analyst enters an IT incident into the application.
+\*\*1. Incident Input\*\*
 
-2\. The system analyzes the incident and identifies the user's intent.
-
-3\. The RAG component searches the approved Knowledge Base.
-
-4\. Retrieved KB content is evaluated using a similarity score.
-
-5\. A retrieval threshold of 0.74 determines whether the KB match is sufficient.
-
-6\. If sufficient information is available, the relevant KB content is provided to Gemini.
-
-7\. Gemini generates a response grounded in the approved KB.
-
-8\. If sufficient KB information is not available, the system returns an insufficient-information response instead of inventing troubleshooting steps.
+The Service Desk analyst enters an incident into the Streamlit application.
 
 
 
-\## Technologies Used
+\*\*2. Intent Analysis\*\*
+
+The system analyzes the incident to determine what the user is trying to accomplish or what issue is being reported.
 
 
 
-\- \*\*Python\*\* — Application development and RAG implementation
+\*\*3. Knowledge Retrieval\*\*
 
-\- \*\*Streamlit\*\* — Web-based user interface
+The RAG component searches the approved Knowledge Base using semantic similarity.
 
-\- \*\*Google Gemini\*\* — Large Language Model for ticket analysis and response generation
 
-\- \*\*RAG (Retrieval-Augmented Generation)\*\* — Knowledge-grounded response generation
 
-\- \*\*Gemini Embeddings\*\* — Semantic similarity and Knowledge Base retrieval
+\*\*4. Similarity Evaluation\*\*
 
-\- \*\*Markdown (.md)\*\* — Knowledge Base articles
+The retrieved knowledge is evaluated using a similarity score.
 
-\- \*\*python-dotenv\*\* — Environment variable management
 
-\- \*\*Git \& GitHub\*\* — Version control and project portfolio
+
+\*\*5. Threshold Decision\*\*
+
+A configured retrieval threshold of \*\*0.74\*\* determines whether the retrieved knowledge is sufficiently relevant.
+
+
+
+\*\*6. Knowledge Grounding\*\*
+
+When the threshold is met, the relevant KB content is supplied to Gemini as the basis for the response.
+
+
+
+\*\*7. Response Generation\*\*
+
+Gemini generates a response grounded in the retrieved knowledge.
+
+
+
+\*\*8. Abstention / Insufficient Knowledge\*\*
+
+When the available knowledge does not meet the required threshold, the system can return an insufficient-information response rather than inventing troubleshooting procedures.
+
+
+
+\---
+
+
+
+\## Key Features
+
+
+
+\### 🔹 Knowledge-Grounded Troubleshooting
+
+
+
+Responses are based on approved Knowledge Base content rather than unrestricted troubleshooting generation.
+
+
+
+\### 🔹 RAG-Based Retrieval
+
+
+
+Semantic retrieval identifies KB content relevant to the incident before the LLM generates a response.
+
+
+
+\### 🔹 Similarity Threshold
+
+
+
+A configurable \*\*0.74 retrieval threshold\*\* controls whether retrieved knowledge is considered sufficient for response generation.
+
+
+
+\### 🔹 Controlled Abstention
+
+
+
+When the Knowledge Base does not contain sufficient information, the system can abstain instead of generating unsupported troubleshooting steps.
+
+
+
+\### 🔹 AI Guardrails
+
+
+
+The project includes controls designed to reduce unsupported recommendations and prevent the AI from bypassing Knowledge Base restrictions.
+
+
+
+\### 🔹 Prompt Injection Handling
+
+
+
+The system was tested against attempts to override the Knowledge Base constraints or request unsupported actions.
+
+
+
+\### 🔹 Human-in-the-Loop
+
+
+
+The AI is designed to assist Service Desk analysts rather than replace analyst validation and escalation decisions.
+
+
+
+\---
+
+
+
+\## Knowledge Base
+
+
+
+The project currently uses approved Markdown-based Knowledge Base articles covering Service Desk scenarios such as:
+
+
+
+\* VPN connectivity issues
+
+\* VPN issues following password changes
+
+\* Corporate Wi-Fi connectivity
+
+\* Outlook email issues
+
+\* Corporate password-related issues
+
+
+
+The Knowledge Base acts as the controlled source of troubleshooting information.
+
+
+
+\---
 
 
 
@@ -188,29 +296,171 @@ Service Desk Analyst
 
 
 
-\- Generative AI
+\* Generative AI
 
-\- Large Language Models (LLMs)
+\* Large Language Models (LLMs)
 
-\- Prompt Engineering
+\* Prompt Engineering
 
-\- Retrieval-Augmented Generation (RAG)
+\* Retrieval-Augmented Generation (RAG)
 
-\- Semantic Search
+\* Semantic Search
 
-\- Embeddings
+\* Embeddings
 
-\- Similarity Scoring
+\* Similarity Scoring
 
-\- Confidence / Threshold-based Decision Making
+\* Threshold-Based Decision Making
 
-\- AI Guardrails
+\* Knowledge Grounding
 
-\- Prompt Injection Handling
+\* AI Guardrails
 
-\- Knowledge Grounding
+\* Prompt Injection Handling
 
-\- AI Evaluation \& Testing
+\* AI Evaluation and Testing
+
+\* Human-in-the-Loop AI
+
+
+
+\---
+
+
+
+\## Evaluation \& Testing
+
+
+
+The application was tested using multiple scenarios to evaluate retrieval quality and response behavior.
+
+
+
+Testing included:
+
+
+
+\* Relevant KB retrieval
+
+\* Below-threshold KB matches
+
+\* Sufficient vs. insufficient knowledge
+
+\* Unrelated incidents
+
+\* Mixed or multi-issue tickets
+
+\* Unsupported troubleshooting requests
+
+\* Prompt-injection-style requests
+
+\* KB grounding and abstention behavior
+
+
+
+The evaluation approach focuses on whether the system:
+
+
+
+1\. Retrieves relevant approved knowledge.
+
+2\. Applies the configured retrieval threshold.
+
+3\. Avoids unsupported troubleshooting guidance.
+
+4\. Provides an insufficient-information response when appropriate.
+
+5\. Respects Knowledge Base restrictions.
+
+
+
+\---
+
+
+
+\## Technologies Used
+
+
+
+| Technology            | Purpose                                        |
+
+| --------------------- | ---------------------------------------------- |
+
+| \*\*Python\*\*            | Application development and RAG implementation |
+
+| \*\*Streamlit\*\*         | Web-based user interface                       |
+
+| \*\*Google Gemini\*\*     | LLM for analysis and response generation       |
+
+| \*\*Gemini Embeddings\*\* | Semantic similarity and KB retrieval           |
+
+| \*\*RAG\*\*               | Knowledge-grounded response generation         |
+
+| \*\*Markdown\*\*          | Knowledge Base articles                        |
+
+| \*\*python-dotenv\*\*     | Environment variable management                |
+
+| \*\*Git \& GitHub\*\*      | Version control and portfolio management       |
+
+
+
+\---
+
+
+
+\## Project Structure
+
+
+
+```text
+
+AI-Service-Desk-Copilot/
+
+│
+
+├── app.py
+
+├── rag.py
+
+├── requirements.txt
+
+├── .gitignore
+
+│
+
+├── KnowledgeBase/
+
+│   ├── KB001-...
+
+│   ├── KB002-...
+
+│   ├── KB003-...
+
+│   ├── KB004-...
+
+│   ├── KB005-...
+
+│   └── ...
+
+│
+
+└── screenshots/
+
+&#x20;   ├── 01-main-interface.png
+
+&#x20;   ├── 02-kb-grounded-response.png
+
+&#x20;   └── 03-insufficient-kb-response.png
+
+```
+
+
+
+> Environment files and the local Python virtual environment are intentionally excluded from the repository.
+
+
+
+\---
 
 
 
@@ -239,4 +489,188 @@ Service Desk Analyst
 
 
 !\[AI Service Desk Copilot - Insufficient Knowledge Response](screenshots/03-insufficient-kb-response.png)
+
+
+
+\---
+
+
+
+\## How to Run Locally
+
+
+
+\### 1. Clone the repository
+
+
+
+```bash
+
+git clone https://github.com/jyotikanwarjo/AI-Service-Desk-Copilot.git
+
+cd AI-Service-Desk-Copilot
+
+```
+
+
+
+\### 2. Create a virtual environment
+
+
+
+```bash
+
+python -m venv .venv
+
+```
+
+
+
+\### 3. Activate the environment
+
+
+
+Windows:
+
+
+
+```bash
+
+.venv\\Scripts\\activate
+
+```
+
+
+
+\### 4. Install dependencies
+
+
+
+```bash
+
+pip install -r requirements.txt
+
+```
+
+
+
+\### 5. Configure the Gemini API key
+
+
+
+Create a local `.env` file:
+
+
+
+```text
+
+GEMINI\_API\_KEY=your\_api\_key\_here
+
+```
+
+
+
+> Never commit the `.env` file or expose API keys publicly.
+
+
+
+\### 6. Run the application
+
+
+
+```bash
+
+streamlit run app.py
+
+```
+
+
+
+The application will open locally in your browser.
+
+
+
+\---
+
+
+
+\## Safety \& Guardrails
+
+
+
+This project intentionally follows a \*\*knowledge-first\*\* approach.
+
+
+
+The application is designed to:
+
+
+
+\* Use approved Knowledge Base content as the troubleshooting source.
+
+\* Avoid inventing procedures when sufficient knowledge is unavailable.
+
+\* Apply a retrieval threshold before using retrieved knowledge.
+
+\* Respect restrictions contained within the Knowledge Base.
+
+\* Support analyst review rather than replacing human judgment.
+
+
+
+The project is a portfolio demonstration and is \*\*not intended to provide production enterprise IT support without appropriate validation, governance, security controls, and organizational approval.\*\*
+
+
+
+\---
+
+
+
+\## Future Enhancements
+
+
+
+Potential future enhancements include:
+
+
+
+\* Integration with enterprise ticketing platforms such as ServiceNow
+
+\* Automated ticket classification
+
+\* Incident priority and impact analysis
+
+\* Improved evaluation dashboards
+
+\* Knowledge Base administration workflows
+
+\* Retrieval and response quality monitoring
+
+\* Human approval workflows
+
+\* Enterprise authentication and authorization
+
+\* Production deployment and observability
+
+
+
+\---
+
+
+
+\## Portfolio Value
+
+
+
+This project demonstrates practical experience applying Generative AI to an enterprise IT Service Desk use case, with emphasis on:
+
+
+
+\*\*Business Problem → RAG → Knowledge Grounding → AI Guardrails → Decision Controls → Evaluation → Human Oversight\*\*
+
+
+
+It combines Service Desk domain knowledge with practical Generative AI implementation and responsible AI principles.
+
+
 
