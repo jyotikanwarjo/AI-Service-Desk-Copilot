@@ -352,6 +352,76 @@ The Knowledge Base acts as the controlled source of troubleshooting information.
 
 
 
+\## Technical Skills Demonstrated
+
+
+
+\### Generative AI
+
+
+
+\* Large Language Models (LLMs)
+
+\* Google Gemini
+
+\* Prompt Engineering
+
+\* Grounded Response Generation
+
+
+
+\### RAG \& Knowledge Retrieval
+
+
+
+\* Retrieval-Augmented Generation (RAG)
+
+\* Semantic Search
+
+\* Embeddings
+
+\* Similarity Scoring
+
+\* Knowledge Base Retrieval
+
+\* Threshold-Based Retrieval Decisions
+
+
+
+\### AI Safety \& Controls
+
+
+
+\* Knowledge Grounding
+
+\* AI Guardrails
+
+\* Controlled Abstention
+
+\* Prompt Injection Handling
+
+\* Human-in-the-Loop AI
+
+
+
+\### Application \& Tools
+
+
+
+\* Python
+
+\* Streamlit
+
+\* Markdown Knowledge Bases
+
+\* python-dotenv
+
+\* Git
+
+\* GitHub
+
+
+
 \---
 
 
