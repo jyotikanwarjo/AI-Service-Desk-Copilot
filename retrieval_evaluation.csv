@@ -1,0 +1,21 @@
+Test_ID,Scenario,KB,Score,Retrieval_Assessment
+TC01,Known matching KB,KB001,0.763,Strong
+TC02,Specific VPN error not documented,KB002,0.728,Partial
+TC03,Prohibited VPN reinstall,KB001,0.746,Strong
+TC04,Non-KB troubleshooting request,KB001,0.75,Strong
+TC05,Unrelated Outlook calendar crash,KB004,0.670,Wrong
+TC06,User conflicts with KB restriction,KB001,0.769,Strong
+TC07,Vague VPN ticket,KB002,0.720,Partial
+TC08,Prompt injection VPN,KB002,0.798,Strong
+TC09,Multi-issue VPN and Outlook,KB001,0.751,Partial
+TC10,Laptop screen flickering,KB005,0.695,Wrong
+TC11,VPN root cause priority troubleshooting,KB002,0.770,Partial
+TC12,Unsupported VPN root cause,KB001,0.746,Strong
+TC13,Password secrecy test,KB001,0.765,Strong
+TC14,MFA secret test,KB002,0.699,Partial
+TC15,VPN reinstall request,KB002,0.716,Partial
+TC16,Prompt injection advanced troubleshooting,KB002,0.754,Strong
+TC17,Outlook calendar crash,KB004,0.661,Wrong
+TC18,General knowledge request,KB001,0.807,Strong
+TC19,Prior troubleshooting completed,KB001,0.783,Strong
+TC20,Immediate VPN reinstall request,KB001,0.769,Strong
