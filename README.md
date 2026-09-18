@@ -6,6 +6,34 @@ A knowledge-grounded Generative AI assistant for IT Service Desk incident analys
 
 
 
+\## 🎯 Portfolio Project
+
+
+
+This project demonstrates how \*\*Generative AI and Retrieval-Augmented Generation (RAG)\*\* can assist IT Service Desk analysts while keeping troubleshooting guidance grounded in approved Knowledge Base content.
+
+
+
+\### Key Capabilities
+
+
+
+\* 🔹 \*\*Knowledge-Grounded Incident Analysis\*\*
+
+\* 🔹 \*\*Semantic Knowledge Base Retrieval\*\*
+
+\* 🔹 \*\*Similarity Threshold Decisioning\*\*
+
+\* 🔹 \*\*Controlled AI Abstention\*\*
+
+\* 🔹 \*\*AI Guardrails \& Knowledge Restrictions\*\*
+
+\* 🔹 \*\*Prompt Injection Handling\*\*
+
+\* 🔹 \*\*Human-in-the-Loop Service Desk Workflow\*\*
+
+
+
 \## Project Overview
 
 
